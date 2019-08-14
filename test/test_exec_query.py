@@ -22,3 +22,15 @@ class ExecQueryTestCase(unittest.TestCase):
 
         mocked_as_dict.assert_called()
         mocked_bq.assert_called()
+
+    def test_exec_query_faulty_secret(self):
+        """Test the normal behaviour of the function"""
+
+        with self.assertRaises(AssertionError):
+            exec_query(True, "SELECT 1")
+
+    def test_exec_query_faulty_query(self):
+        """Test the normal behaviour of the function"""
+
+        with self.assertRaises(AssertionError):
+            exec_query("/opt/container/secret.json", True)
