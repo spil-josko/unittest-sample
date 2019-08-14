@@ -1,3 +1,4 @@
+container/secret.json
 volumes/
 microservices-ext/
 .build/

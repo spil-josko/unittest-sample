@@ -23,7 +23,8 @@ if __name__ == "__main__":
         group=["applicationId"]
     )
     logging.info(query)
-    logging.info("Let us execute that query. This function will require mocking when tested")
+    logging.info(
+        "Let us execute that query. This function will require mocking when tested")
 
     result = exec_query("/opt/container/secret.json", query)
     for i in range(10):

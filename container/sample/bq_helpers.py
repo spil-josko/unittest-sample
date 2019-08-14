@@ -2,10 +2,11 @@
 from google.cloud import bigquery as bq
 
 
-def get_query_as_array_dict(client, query): 
+def get_query_as_array_dict(client, query):
     results = [parse_bq_result(row) for row in client.query(query)]
 
     return results
+
 
 def parse_bq_result(row):
     parsed_result = {}
@@ -15,8 +16,9 @@ def parse_bq_result(row):
 
     return parsed_result
 
+
 def get_bq_client(secret):
-    """ returns bq client """ 
+    """ returns bq client """
     client = bq.Client.from_service_account_json(
         secret
     )
@@ -26,4 +28,4 @@ def get_bq_client(secret):
     return bq.Client.from_service_account_json(
         secret,
         project=projects[0]
-    ) 
+    )
