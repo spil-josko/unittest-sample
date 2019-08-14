@@ -1,5 +1,4 @@
 microservices-ext/
 .build/
-test/.*
+**.*
 **/__pycache__
-
