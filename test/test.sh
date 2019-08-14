@@ -1,7 +1,8 @@
 #!/bin/bash
 export PYTHONPATH=$PYTHONPATH:/opt/:/opt/container/
+pwd
 rm -Rf .htmlcov
-coverage run -m py.test unittest/tests/
+coverage run -m py.test test/tests/
 SUCCESS=$?
 echo ""
 coverage report -m

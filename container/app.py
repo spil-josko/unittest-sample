@@ -1,10 +1,10 @@
 import logging
 
+
 def construct_query(*args, **kwargs):
     """Simple query construction. Purpose is to unit test it for demonstration purposes"""
     query = "SELECT {fields} FROM {table} {extra}"
     extra_order = "GROUP BY {grouped_fields}"
-
 
     fields = kwargs.get("fields")
     table = kwargs.get("table")
@@ -15,15 +15,17 @@ def construct_query(*args, **kwargs):
     assert isinstance(table, str)
     assert isinstance(group, list) or group is None
 
-    fields = ",".join(fields)  
+    fields = ",".join(fields)
 
     if group:
-        group = ",".join(group) 
-        query = query.format(fields = fields, table = table, extra = extra_order.format(grouped_fields = group))
+        group = ",".join(group)
+        query = query.format(fields=fields, table=table,
+                             extra=extra_order.format(grouped_fields=group))
     else:
-        query = query.format(fields = fields, table = table, extra="")
+        query = query.format(fields=fields, table=table, extra="")
 
     return query
+
 
 if __name__ == "__main__":
 
@@ -35,12 +37,14 @@ if __name__ == "__main__":
     logger.addHandler(consoleHandler)
     logger.setLevel(logging.INFO)
 
-    logging.info("This is the unittest sample. It has a few functions for the purpose of demonstrating unittests.")
+    logging.info(
+        "This is the unittest sample. It has a few functions for the purpose of demonstrating unittests.")
 
-    logging.info("Will no demonstrate a simple query construction. It is called correctly in the sample.")
+    logging.info(
+        "Will no demonstrate a simple query construction. It is called correctly in the sample.")
     query = construct_query(
-        fields = ["level", "COUNT(1) AS number"],
-        table = "fake_users",
-        group = ["level"]
-    ) 
+        fields=["level", "COUNT(1) AS number"],
+        table="fake_users",
+        group=["level"]
+    )
     logging.info(query)
