@@ -4,8 +4,7 @@
 APP=unittest-sample
 PROJECT-TYPE=python
 CONTAINER_VOLUMES=-v $(PWD) \
-	-v $(PWD)/test:/opt/container/test \
-	-v ${PWD}/container/topics:/opt/container/test/topics
+	-v $(PWD)/test:/opt/container/test 
 CONTAINER_ENVS=-e GOOGLE_CLOUD_PROJECT=spil-bi-online-stg \
 	-e GOOGLE_CLOUD_DISABLE_GRPC=true \
 	-e GOOGLE_APPLICATION_CREDENTIALS=/opt/secrets/service-account/spil-bi-online-prd.json \
