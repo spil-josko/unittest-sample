@@ -4,6 +4,7 @@
 APP=unittest-sample
 PROJECT-TYPE=python
 CONTAINER_VOLUMES=-v $(PWD) \
+	-v $(PWD)/volumes/spil-bi-online-prd.json:/opt/container/secret.json \
 	-v $(PWD)/test:/opt/container/test 
 CONTAINER_ENVS=-e GOOGLE_CLOUD_PROJECT=spil-bi-online-stg \
 	-e GOOGLE_CLOUD_DISABLE_GRPC=true \

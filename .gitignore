@@ -1,4 +1,5 @@
+volumes/
 microservices-ext/
 .build/
-**.*
+**/.*
 **/__pycache__
